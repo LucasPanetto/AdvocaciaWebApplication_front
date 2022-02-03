@@ -30,6 +30,12 @@ import { Step5Component } from './steps/step5/step5.component';
     ReactiveFormsModule,
     InlineSVGModule,
     NgbTooltipModule,
-  ],
+  ], exports: [
+    Step1Component,
+    Step2Component,
+    Step3Component,
+    Step4Component,
+    Step5Component
+  ]
 })
-export class WizardsModule {}
+export class WizardsModule { }

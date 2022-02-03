@@ -8,7 +8,6 @@
 >
   <!--begin::Heading-->
   <div class="text-center mb-10">
-    <h1 class="text-dark mb-3">Sign In to Metronic</h1>
     <div class="text-gray-400 fw-bold fs-4">
       Novo por aqui?
       <a
@@ -21,26 +20,7 @@
   </div>
   <!--end::Heading-->
 
-  <!-- begin::Alert info-->
-  <ng-container *ngIf="!hasError">
-    <div class="mb-10 bg-light-info p-8 rounded">
-      <div class="text-info">
-        Use account <strong>{{ defaultAuth.email }}</strong> and password
-        <strong>{{ defaultAuth.password }}</strong> to continue.
-      </div>
-    </div>
-  </ng-container>
-  <!-- end::Alert info-->
 
-  <!-- begin::Alert error-->
-  <ng-container *ngIf="hasError">
-    <div class="mb-lg-15 alert alert-danger">
-      <div class="alert-text font-weight-bold">
-        The login details are incorrect
-      </div>
-    </div>
-  </ng-container>
-  <!-- end::Alert error-->
 
   <!--begin::Form group-->
   <div class="fv-row mb-10">
@@ -60,7 +40,7 @@
       [ngTemplateOutlet]="formError"
       [ngTemplateOutletContext]="{
         validation: 'required',
-        message: 'Email is required',
+        message: 'Informe seu E-mail',
         control: loginForm.controls['email']
       }"
     ></ng-container>
@@ -68,7 +48,7 @@
       [ngTemplateOutlet]="formError"
       [ngTemplateOutletContext]="{
         validation: 'email',
-        message: 'Email is invalid',
+        message: 'Email inválido',
         control: loginForm.controls['email']
       }"
     ></ng-container>
@@ -94,7 +74,7 @@
   <!--begin::Form group-->
   <div class="fv-row mb-10">
     <div class="d-flex justify-content-between mt-n5">
-      <div class="d-flex flex-stack mb-2">
+      <div class="d-flex flex-stack mb-2 w-100">
         <label class="form-label fw-bolder text-dark fs-6 mb-0">Senha</label>
         <a
           routerLink="/auth/forgot-password"
@@ -122,7 +102,7 @@
       [ngTemplateOutlet]="formError"
       [ngTemplateOutletContext]="{
         validation: 'required',
-        message: 'Password is required',
+        message: 'Informe sua senha!',
         control: loginForm.controls['password']
       }"
     ></ng-container>

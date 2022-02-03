@@ -1,0 +1,108 @@
+<div class="card mb-5 mb-xl-10" id="kt_profile_details_view">
+  <div class="card-header cursor-pointer row">
+    <div class="card-title m-0 col-md-7">
+      <h3 class="fw-bolder m-0">{{title}}</h3>
+    </div>
+    <div class="col-md-5 m-auto" style="text-align: right;">
+      <a routerLink="/crafted/account/settings" class="btn btn-primary align-self-center me-5">
+        Adicionar
+      </a>
+      <a routerLink="/crafted/account/settings" class="btn btn-light align-self-center me-5">
+        <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr029.svg'" class="svg-icon svg-icon-2 m-0"></span>
+      </a>
+      <a class="btn btn-light align-self-center" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end"
+        data-kt-menu-flip="top-end">
+        <span [inlineSVG]="'./assets/media/icons/duotune/general/gen031.svg'" class="svg-icon svg-icon-2 m-0"></span>
+      </a>
+      <app-dropdown-menu2></app-dropdown-menu2>
+    </div>
+  </div>
+  <div class="card-body py-3">
+    <div class="table-responsive">
+      <table class="table table-row-bordered table-row-gray-100 align-middle gs-0 gy-3">
+        <thead>
+          <tr class="fw-bolder text-muted">
+            <th class="w-25px">
+              <div class="
+                form-check form-check-sm form-check-custom form-check-solid
+              ">
+                <input class="form-check-input" type="checkbox" value="1" data-kt-check="true"
+                  data-kt-check-target=".widget-13-check" />
+              </div>
+            </th>
+            <th class="min-w-150px">Nome</th>
+            <th class="min-w-120px">Nascimento / Idade</th>
+            <th class="min-w-120px">Localidade</th>
+            <th class="min-w-100px"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of data">
+            <td>
+              <div class="
+                form-check form-check-sm form-check-custom form-check-solid
+              ">
+                <input class="form-check-input widget-13-check" type="checkbox" value="1" />
+              </div>
+            </td>
+            <td>
+              <a href="#" class="text-dark fw-bolder text-hover-primary fs-6">
+                {{item.name}}
+              </a>
+            </td>
+            <td>
+              <a href="#" class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">
+                {{item.birthday | date: 'dd/MM/yyyy'}}
+              </a>
+              <span class="text-muted fw-bold text-muted d-block fs-7">{{item.age}} Anos</span>
+            </td>
+            <td>
+              <a href="#" class="text-dark fw-bolder text-hover-primary d-block mb-1 fs-6">
+                {{item.address?.state || '-'}}
+              </a>
+              <span class="text-muted fw-bold text-muted d-block fs-7">
+                {{item.address?.city || '-'}}
+              </span>
+            </td>
+            <td class="text-end">
+              <a href="#" class="
+                btn btn-icon btn-bg-light btn-active-color-primary btn-sm
+                me-1
+              ">
+                <span [inlineSVG]="'./assets/media/icons/duotune/art/art005.svg'" class="svg-icon svg-icon-3"></span>
+              </a>
+              <a href="#" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
+                <span [inlineSVG]="'./assets/media/icons/duotune/general/gen027.svg'"
+                  class="svg-icon svg-icon-3"></span>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row mt-5" *ngIf="data">
+      <div class="col-md-11">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination justify-content-start">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="col-md-1">
+        <select class="form-select form-select-sm" aria-label="Default select example">
+          <option value="1" selected>15</option>
+          <option value="2">30</option>
+          <option value="3">50</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>

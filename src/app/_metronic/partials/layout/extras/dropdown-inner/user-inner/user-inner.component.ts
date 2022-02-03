@@ -68,6 +68,11 @@ const languages = [
     flag: './assets/media/flags/united-states.svg',
   },
   {
+    lang: 'pt-br',
+    name: 'Português',
+    flag: './assets/media/flags/china.svg',
+  },
+  {
     lang: 'zh',
     name: 'Mandarin',
     flag: './assets/media/flags/china.svg',

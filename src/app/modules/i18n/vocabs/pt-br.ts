@@ -19,7 +19,7 @@ export const locale = {
         OR: 'Or',
         SUBMIT_BUTTON: 'Submit',
         NO_ACCOUNT: 'Don\'t have an account?',
-        SIGNUP_BUTTON: 'Conheça mais',
+        SIGNUP_BUTTON: 'Cadastre-se',
         FORGOT_BUTTON: 'Forgot Password',
         BACK_BUTTON: 'Back',
         PRIVACY: 'Privacy',

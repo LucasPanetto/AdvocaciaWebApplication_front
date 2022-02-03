@@ -1,0 +1,118 @@
+<div class="card">
+  <div class="card-header cursor-pointer row">
+    <div class="card-title m-0 col-md-7">
+      <h3 class="fw-bolder m-0">{{title}}</h3>
+    </div>
+    <div class="col-md-5 m-auto" style="text-align: right;">
+      <a routerLink="/crafted/account/settings" class="btn btn-primary align-self-center me-5">
+        Adicionar
+      </a>
+      <a routerLink="/crafted/account/settings" class="btn btn-light align-self-center me-5">
+        <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr029.svg'" class="svg-icon svg-icon-2 m-0"></span>
+      </a>
+      <a class="btn btn-light align-self-center" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end"
+        data-kt-menu-flip="top-end">
+        <span [inlineSVG]="'./assets/media/icons/duotune/general/gen031.svg'" class="svg-icon svg-icon-2 m-0"></span>
+      </a>
+      <app-dropdown-menu2></app-dropdown-menu2>
+    </div>
+  </div>
+  <div class="card-body p-0">
+    <div class="stepper stepper-links d-flex flex-column pt-5" id="kt_create_account_stepper">
+      <div class="stepper-nav">
+        <a class="stepper-item" [ngClass]="{
+            current: currentStep$.value === 1
+          }" (click)="setStep(1)">
+          <h3 class="stepper-title">Tipo</h3>
+        </a>
+
+        <div class="stepper-item" [ngClass]="{
+            current: currentStep$.value === 2
+          }" (click)="setStep(2)">
+          <h3 class="stepper-title">{{customerDataName}}</h3>
+        </div>
+
+        <div class="stepper-item" [ngClass]="{
+            current: currentStep$.value === 3
+          }" (click)="setStep(3)">
+          <h3 class="stepper-title">Endereço</h3>
+        </div>
+
+        <div class="stepper-item" [ngClass]="{
+            current: currentStep$.value === 4
+          }" (click)="setStep(4)">
+          <h3 class="stepper-title">Histórico Trabalhista</h3>
+        </div>
+
+        <div class="stepper-item" [ngClass]="{ current: currentStep$.value === 5 }">
+          <h3 class="stepper-title">Completed</h3>
+        </div>
+      </div>
+
+      <form class="mx-auto mw-600px w-100 pt-5 pb-10" noValidate id="kt_create_account_form">
+        <div class="current">
+          <ng-container *ngIf="currentStep$.value === 1">
+            <app-step1 class="w-100" [updateParentModel]="updateAccount" [defaultValues]="account$.value" (notifyParent)="changeCustomerDataName($event)"></app-step1>
+          </ng-container>
+
+          <ng-container *ngIf="currentStep$.value === 2">
+            <app-step2 class="w-100" [updateParentModel]="updateAccount" [defaultValues]="account$.value"></app-step2>
+          </ng-container>
+
+          <ng-container *ngIf="currentStep$.value === 3">
+            <app-step3 class="w-100" [updateParentModel]="updateAccount" [defaultValues]="account$.value"></app-step3>
+          </ng-container>
+
+          <ng-container *ngIf="currentStep$.value === 4">
+            <app-step4 class="w-100" [updateParentModel]="updateAccount" [defaultValues]="account$.value"></app-step4>
+          </ng-container>
+
+          <ng-container *ngIf="currentStep$.value === 5">
+            <app-step5 class="w-100"></app-step5>
+          </ng-container>
+        </div>
+
+        <div class="d-flex flex-stack pt-15">
+          <div class="mr-2">
+            <ng-container *ngIf="currentStep$.value !== 1">
+              <button type="button" class="btn btn-lg btn-light-primary me-3" (click)="prevStep()">
+                <span [inlineSVG]="'./assets/media/icons/duotune/arrows/arr063.svg'"
+                  class="svg-icon svg-icon-4 me-1"></span>
+                Back
+              </button>
+            </ng-container>
+          </div>
+
+          <ng-container *ngIf="currentStep$.value !== formsCount">
+            <div>
+              <button type="button" class="btn btn-lg btn-primary me-3" [disabled]="!isCurrentFormValid$.value"
+                (click)="nextStep()">
+                <span class="indicator-label">
+                  <ng-container *ngIf="currentStep$.value < formsCount - 1">
+                    Continue {{ " " }}
+                    <span [inlineSVG]="
+                        './assets/media/icons/duotune/arrows/arr064.svg'
+                      " class="svg-icon svg-icon-3 ms-2 me-0"></span>
+                  </ng-container>
+                  <ng-container *ngIf="currentStep$.value === formsCount - 1">
+                    Submit
+                  </ng-container>
+                </span>
+              </button>
+            </div>
+          </ng-container>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+<app-profile-details></app-profile-details>
+<app-sign-in-method></app-sign-in-method>
+<app-connected-accounts></app-connected-accounts>
+<app-email-preferences></app-email-preferences>
+<app-notifications></app-notifications>
+<app-deactivate-account></app-deactivate-account>

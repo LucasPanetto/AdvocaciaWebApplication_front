@@ -12,6 +12,11 @@ const Routing: Routes = [
       import('./builder/builder.module').then((m) => m.BuilderModule),
   },
   {
+    path: 'customer',
+    loadChildren: () =>
+      import('../modules/customer/customer.module').then((m) => m.CustomerModule),
+  },
+  {
     path: 'crafted/pages/profile',
     loadChildren: () =>
       import('../modules/profile/profile.module').then((m) => m.ProfileModule),
